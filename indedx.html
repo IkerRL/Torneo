@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Tournament Master</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div id="winner-overlay" class="winner-screen" style="display:none">
+        <div class="winner-content">
+            <h1 class="champion-title">🏆 GRAN CAMPEÓN 🏆</h1>
+            <div id="champion-box" class="team-capsule champion-display"></div>
+            <button onclick="location.reload()" class="btn-valorant-main" style="width: auto; padding: 10px 40px; margin-top: 20px;">REINICIAR TORNEO</button>
+        </div>
+    </div>
+
+    <section id="setup-section">
+        <div class="tournament-banner-container">
+            <label for="banner-upload" class="banner-display" id="banner-view">
+                <div class="banner-placeholder">
+                    <span style="font-size: 50px;">🖼️</span>
+                    <p>SUBIR PORTADA DEL TORNEO (GRAN TAMAÑO)</p>
+                </div>
+                <input type="file" id="banner-upload" hidden accept="image/*" onchange="previewBanner(event)">
+            </label>
+        </div>
+
+        <header><h1>REGISTRO DE EQUIPOS</h1></header>
+        <div class="admin-controls-bar">
+            <div class="input-group">
+                <span style="color: var(--v-neon); margin-left: 10px;">GRUPOS:</span>
+                <input type="number" id="numGrupos" value="4" class="v-input num-input">
+            </div>
+            <input type="text" id="teamName" placeholder="NOMBRE DEL EQUIPO Y ENTER..." class="v-input text-input" onkeydown="if(event.key==='Enter') addTeam()">
+            <div id="trash-bin" class="trash-custom">🗑️</div>
+        </div>
+
+        <div class="agentes-rectangulo">
+            <ul id="teamsList" class="teams-grid-layout"></ul>
+        </div>
+        <button class="btn-valorant-main" onclick="generarFaseGrupos()">INICIAR FASE DE GRUPOS</button>
+    </section>
+
+    <section id="groups-section" style="display:none;">
+        <h1 class="section-title">FASE DE GRUPOS</h1>
+        <p style="text-align:center; color: #aaa;">ORDENA LOS GRUPOS: EL ÚLTIMO DE CADA LISTA SERÁ ELIMINADO</p>
+        <div id="groups-container" class="groups-folder-grid"></div>
+        <button class="btn-valorant-main" onclick="generarBracketFinal()">APLICAR PURGA Y GENERAR BRACKET</button>
+    </section>
+
+    <section id="bracket-section" style="display:none;">
+        <div id="dynamic-bracket" class="world-cup-visual"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
