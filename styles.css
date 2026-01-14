@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
+
+:root {
+    --v-purple: #8b5cf6;
+    --v-neon: #50ffab;
+    --v-bg: #0b1219;
+    --v-red: #ff4655;
+}
+
+body {
+    background: var(--v-bg);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    margin: 0; padding: 20px;
+}
+
+/* BANNER */
+.tournament-banner-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 350px;
+    margin: 0 auto 30px;
+    border: 2px dashed var(--v-purple);
+    background: rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+.banner-display img { width: 100%; height: 100%; object-fit: cover; }
+
+/* GRID 6 COLUMNAS */
+.teams-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.team-capsule {
+    background: #161d24;
+    border: 1px solid var(--v-purple);
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    cursor: grab;
+    transition: 0.2s;
+}
+.team-capsule:hover { background: var(--v-purple); }
+.team-capsule.empty { border: 1px dashed #444; color: #555; background: transparent; cursor: default; }
+
+/* BRACKET */
+.world-cup-visual { display: flex; justify-content: center; align-items: center; gap: 40px; min-height: 85vh; padding: 20px; }
+.bracket-column { display: flex; flex-direction: column; justify-content: space-around; height: 800px; width: 170px; }
+
+/* INTERFAZ */
+.admin-controls-bar { display: flex; background: #0a0f14; border: 1px solid var(--v-purple); margin-bottom: 20px; }
+.v-input { background: transparent; border: none; border-right: 1px solid #333; color: white; padding: 15px; font-family: 'Rajdhani'; outline: none; }
+.num-input { width: 80px; text-align: center; }
+.text-input { flex-grow: 1; }
+.btn-valorant-main { background: var(--v-red); color: white; border: none; padding: 20px; cursor: pointer; width: 100%; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%); font-weight: bold; font-size: 20px; margin-top: 15px; }
+
+.groups-folder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 30px 0; }
+.grupo-box { background: #161d24; border-top: 4px solid var(--v-neon); padding: 20px; }
+.winner-screen { position: fixed; inset: 0; background: rgba(11, 18, 25, 0.98); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+.champion-display { transform: scale(3); border: 2px solid gold; padding: 20px; }
